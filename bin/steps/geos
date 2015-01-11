@@ -9,9 +9,9 @@ export GEOS_LIBRARY_PATH="$(build_path $GEOS_LIB_PATH)"
 
 # Download and vendored GEOS
 if [ -f "$GEOS_LIB_PATH" ]; then
-    puts_step "Using GEOS ($GEOS_VERSION)"
+    puts-step "Using GEOS ($GEOS_VERSION)"
 else
-    puts_step "Installing GEOS ($GEOS_VERSION)"
+    puts-step "Installing GEOS ($GEOS_VERSION)"
     download_s3_package heroku-buildpack-python-extras geos "$GEOS_VERSION" "$GEOS_DIR"
 fi
 
