@@ -91,3 +91,23 @@ sub-env() {
 
   )
 }
+
+# Usage: $ download_s3_package bucket engine version location
+function download_s3_package() {
+    local bucket="$1"
+    local engine="$2"
+    local version="$3"
+    local location="$4"
+    local package="http://$bucket.s3.amazonaws.com/$engine-$version.tgz"
+
+    download_package "$package" "$location"
+}
+
+# Usage: $ download_package tarball_url location
+function download_package() {
+    local package="$1"
+    local location="$2"
+
+    mkdir -p $location
+    curl $package -s -o - | tar xzf - -C $location
+}
