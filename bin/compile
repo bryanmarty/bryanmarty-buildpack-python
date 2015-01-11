@@ -151,11 +151,6 @@ mkdir -p $(dirname $PROFILE_PATH)
 # Install Python.
 source $BIN_DIR/steps/python
 
-# Install libmemcached for pylibmc
-if [ ! "$SKIP_LIBMEMCACHED" ]; then
-    source "$BIN_DIR/steps/libmemcached"
-fi
-
 # Sanity check for setuptools/distribute.
 source $BIN_DIR/steps/setuptools
 
@@ -167,6 +162,11 @@ source $BIN_DIR/steps/mercurial
 
 # Pylibmc support.
 source $BIN_DIR/steps/pylibmc
+
+# Install libmemcached for pylibmc
+if [ ! "$SKIP_LIBMEMCACHED" ]; then
+    source "$BIN_DIR/steps/libmemcached"
+fi
 
 # Libffi support.
 source $BIN_DIR/steps/cryptography
