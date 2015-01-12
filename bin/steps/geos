@@ -7,6 +7,12 @@ GEOS_PROFILE_PATH="$PROFILE_DIR/geos.sh"
 
 export GEOS_LIBRARY_PATH="$(build_path $GEOS_LIB_PATH)"
 
+# Syntax sugar.
+source $BIN_DIR/utils
+
+
+bpwatch start geos_install
+
 # Download and vendored GEOS
 if [ -f "$GEOS_LIB_PATH" ]; then
     puts-step "Using GEOS ($GEOS_VERSION)"
@@ -18,3 +24,5 @@ fi
 # Setup runtime env
 mkdir -p $(dirname $GEOS_PROFILE_PATH)
 set_env_default GEOS_LIBRARY_PATH "$(app_path $GEOS_LIB_PATH)" "$GEOS_PROFILE_PATH"
+
+bpwatch stop geos_install
