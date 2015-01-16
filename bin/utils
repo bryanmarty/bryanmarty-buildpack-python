@@ -20,6 +20,15 @@ function build_path() {
         echo "$BUILD_DIR/$1"
 }
 
+# Returns an escaped path to the given directory, relative to the $HOME directory.
+# Usage:
+#
+#     $ app_path ".heroku/python"
+#     $HOME/.heroku/python
+function app_path() {
+    echo "\$HOME/$1"
+}
+
 # Buildpack Steps.
 puts-step() {
   echo "-----> $@"
