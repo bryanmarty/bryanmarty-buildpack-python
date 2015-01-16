@@ -148,6 +148,9 @@ set -e
 
 mkdir -p $(dirname $PROFILE_PATH)
 
+export HEROKU_DIR=".heroku"
+export HEROKU_VENDOR_DIR="$HEROKU_DIR/vendor"
+
 # Install Python.
 source $BIN_DIR/steps/python
 

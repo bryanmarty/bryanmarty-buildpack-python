@@ -104,7 +104,6 @@ function download_s3_package() {
     local stack="$4"
     local location="$5"
     local package="http://$bucket.s3.amazonaws.com/$engine-$version-heroku-$stack.tar.gz"
-    echo "Downloading $package"
     download_package "$package" "$location"
 }
 
@@ -112,7 +111,7 @@ function download_s3_package() {
 function download_package() {
     local package="$1"
     local location="$2"
-
     mkdir -p $location
+    echo "Downloading $package"
     curl $package -s -o - | tar xzf - -C $location
 }

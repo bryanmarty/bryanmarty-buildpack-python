@@ -21,8 +21,6 @@ else
 fi
 
 # Setup runtime env
-echo "Path is GEOS_PROFILE_PATH"
-echo "DIR is $(dirname $GEOS_PROFILE_PATH)"
 mkdir -p $(dirname $GEOS_PROFILE_PATH)
 set_env_default GEOS_LIBRARY_PATH "$(app_path $GEOS_LIB_PATH)" "$GEOS_PROFILE_PATH"
 
