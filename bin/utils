@@ -96,6 +96,11 @@ sub-env() {
   )
 }
 
+# Usage: $ set_env_default key value
+function set_env_default() {
+    echo "export $1=\${$1:-$2}" >> ${3:-$PROFILE_PATH}
+}
+
 # Usage: $ download_s3_package bucket engine version location
 function download_s3_package() {
     local bucket="$1"
