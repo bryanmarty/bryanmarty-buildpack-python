@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 
+# Syntax sugar.
+source $BIN_DIR/utils
+
 GEOS_DIR="$HEROKU_VENDOR_DIR"
 GEOS_VERSION=${GEOS_VERSION:-"3.4.2"}
 GEOS_LIB_PATH="$GEOS_DIR/lib/libgeos_c.so"
 GEOS_PROFILE_PATH="$PROFILE_PATH/geos.sh"
 
 export GEOS_LIBRARY_PATH="$(build_path $GEOS_LIB_PATH)"
-
-# Syntax sugar.
-source $BIN_DIR/utils
-
 
 bpwatch start geos_install
 
