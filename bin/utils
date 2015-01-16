@@ -97,9 +97,10 @@ function download_s3_package() {
     local bucket="$1"
     local engine="$2"
     local version="$3"
-    local location="$4"
-    local package="http://$bucket.s3.amazonaws.com/$engine-$version.tgz"
-
+    local stack="$4"
+    local location="$5"
+    local package="http://$bucket.s3.amazonaws.com/$engine-$version-heroku-$stack.tar.gz"
+    echo "Downloading $package"
     download_package "$package" "$location"
 }
 

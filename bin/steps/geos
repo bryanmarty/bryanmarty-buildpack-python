@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 GEOS_DIR="$HEROKU_VENDOR_DIR"
-GEOS_VERSION=${GEOS_VERSION:-"3.3.5"}
+GEOS_VERSION=${GEOS_VERSION:-"3.4.2"}
 GEOS_LIB_PATH="$GEOS_DIR/lib/libgeos_c.so"
 GEOS_PROFILE_PATH="$PROFILE_DIR/geos.sh"
 
@@ -18,7 +18,7 @@ if [ -f "$GEOS_LIB_PATH" ]; then
     puts-step "Using GEOS ($GEOS_VERSION)"
 else
     puts-step "Installing GEOS ($GEOS_VERSION)"
-    download_s3_package heroku-buildpack-python-extras geos "$GEOS_VERSION" "$GEOS_DIR"
+    download_s3_package bryanmarty-heroku-binaries geos "$GEOS_VERSION" "$STACK" "$GEOS_DIR"
 fi
 
 # Setup runtime env
